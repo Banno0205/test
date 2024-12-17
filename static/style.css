@@ -1,0 +1,157 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('/static/background.png') no-repeat center center fixed;
+    background-size: cover;
+    color: white; /* テキストの色を白に変更 */
+}
+
+.container1 {
+    width: 30%; /* 横幅を画面の半分に設定 */
+    height: 500px; 
+    background: rgba(241, 244, 242, 0.9); /* 背景の透明度を設定 */
+    color: rgb(0, 0, 0); /* テキストの色 */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    margin-top: 150px;
+    margin-left: 150px;
+    
+}
+
+.container2 {
+    width: 30%; /* 横幅を画面の半分に設定 */
+    height: 600px; 
+    background: rgba(241, 244, 242, 0.9); /* 背景の透明度を設定 */
+    color: rgb(0, 0, 0); /* テキストの色 */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    margin-top: -550px;
+    margin-left: 800px;
+    
+}
+
+.upload-section {
+    margin: 20px 0;
+}
+
+label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+input[type="file"] {
+    display: block;
+    margin: 0 auto 20px;
+}
+
+button {
+    background-color: #1DB954;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #1aa34a;
+}
+
+.result-section {
+    margin-top: 30px;
+}
+
+.result-section a {
+    color: #1DB954;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.image-preview {
+    margin-top: 30px;
+}
+
+.image-preview img {
+    margin: 10px 0; /* 上下に余白 */
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+/* テーブル全体のスタイル */
+table {
+    width: 100%; /* テーブルの幅を100%に設定 */
+    border-collapse: collapse; /* 枠線を重ねる */
+    margin: 10px 0; /* 上下に余白 */
+    font-size: 14px; /* テキストのサイズを大きめに */
+    text-align: center; /* テキストを中央揃え */
+    background-color: #fff; /* 背景を白に */
+    border-radius: 10px; /* 角を丸くする */
+    overflow: hidden; /* 角丸に合わせて内容を隠す */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* ポップな影をつける */
+}
+
+
+/* ボディのセルスタイル */
+tbody td {
+    padding: 10px; /* セル内の余白 */
+    border-bottom: 1px solid #e8e8e8; /* セルの下枠線 */
+    color: #333; /* テキスト色 */
+    font-weight: bold; /* テキストを太字 */
+}
+
+/* 1位の背景色 */
+tbody tr:nth-child(1) {
+    background-color: #ffd700; /* ゴールド */
+    color: #333; /* テキスト色 */
+}
+
+/* 2位の背景色 */
+tbody tr:nth-child(2) {
+    background-color: #c0c0c0; /* シルバー */
+    color: #333; /* テキスト色 */
+}
+
+/* 3位の背景色 */
+tbody tr:nth-child(3) {
+    background-color: #cd7f32; /* ブロンズ */
+    color: #333; /* テキスト色 */
+}
+
+
+/* ホバー時の行の背景色 */
+tbody tr:hover {
+    background-color: #ffdab9; /* ホバー時にポップな薄いオレンジ色 */
+    transition: background-color 0.3s ease; /* 滑らかな変化 */
+}
+
+/* テキストをポップにする */
+h1 {
+    font-size: 24px;
+    color: #ff6f61; /* ポップなオレンジ */
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    margin: 10px 0;
+}
+
+/* 3位の背景色 */
+tbody tr:nth-child(3) {
+    background-color: #b89970; /* 白色 */
+    color: #ed4e4e; /* テキスト色 */
+    font-weight: bold; /* フォントを太字 */
+}
+/* ホバー時の行の背景色 */
+tbody tr:hover {
+    background-color: #f1f1f1; /* ホバー時の背景色 */
+    transition: background-color 0.3s ease; /* 滑らかな変化 */
+    
+}

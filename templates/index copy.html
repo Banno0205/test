@@ -1,0 +1,43 @@
+<!-- 画像アップロードセクション -->
+<div class="container1">
+    <form method="POST" enctype="multipart/form-data">
+        <div class="upload-section">
+            <label for="file">画像をアップロードしてください</label>
+            <input type="file" name="file" id="file" required>
+        </div>
+        <input type="hidden" name="stage" value="1"> <!-- 修正: フォーム内に配置 -->
+        <button type="submit">送信</button>
+    </form>
+
+    {% if imagefile %}
+    <div class="image-preview">
+        <img src="{{ imagefile }}" alt="Uploaded Image">
+    </div>
+    {% endif %}
+</div>
+
+<!-- プレイリストID入力セクション -->
+<div class="container2">
+    {% if getimage %}
+    <form method="POST" action="">
+        <div class="filename-section">
+            <label for="getplaylistid">プレイリストIDを入力してください or 6UOjJK96nz6y4LKToTSIDw</label>
+            <input type="text" name="getplaylistid" id="getplaylistid" placeholder="6UOjJK96nz6y4LKToTSIDw" required>
+        </div>
+        <input type="hidden" name="stage" value="2"> <!-- 修正: フォーム内に配置 -->
+        <button type="submit">アップロード</button>
+    </form>
+    {% endif %}
+    
+    {% if answer %}
+    <div class="result-section">
+        <a href="{{ answer }}" target="_blank">プレイリストを開く</a>
+    </div>
+    {% endif %}
+</div>
+
+
+
+
+
+http://127.0.0.1:8080

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playlist Generator</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <!-- 画像アップロードセクション -->
+    <div class="container1">
+            <!-- 画像アップロードセクション -->
+        <form method="POST" enctype="multipart/form-data">
+            <label for="file">画像をアップロードしてください</label>
+            <input type="file" name="file" id="file" required>
+            <button type="submit">アップロード</button>
+        </form>
+
+        <!-- アップロード画像表示 -->
+        {% if imagefile %}
+            <img src="{{ imagefile }}" alt="Uploaded Image" width="400px">
+        {% endif %}
+    </div>
+
+
+    <!-- プレイリストID入力セクション -->
+ <div class="container2">
+    {% if getimage %}
+        <h1>上位10曲</h1>
+        <table border="1">
+        <tbody>
+                {% for row in top %}
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    
+        <!-- プレイリスト作成ボタン -->
+        <form method="POST">
+            <input type="hidden" name="create_playlist" value="true">
+            <button type="submit">プレイリストを作成する</button>
+        </form>
+
+        {% if URLready %}
+            <p>プレイリストが作成されました！</p>
+            <a href="{{ answer }}" target="_blank">プレイリストを開く</a>
+        {% endif %}
+    {% endif %}
+
+</body>
+
+</html>
