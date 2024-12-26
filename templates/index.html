@@ -7,18 +7,24 @@
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
+    <header class="header">
+        <div class="header-content">
+            <img src="/static/images/head.png" alt="Header Image" class="header-image">
+        </div>
+    </header>
     <!-- 画像アップロードセクション -->
     <div class="container1">
             <!-- 画像アップロードセクション -->
         <form method="POST" enctype="multipart/form-data">
-            <label for="file">画像をアップロードしてください</label>
+            <h2>画像をアップロード</h2>
             <input type="file" name="file" id="file" required>
-            <button type="submit">アップロード</button>
+            <button type="submit" class="upload-button">アップロード</button>
         </form>
 
         <!-- アップロード画像表示 -->
         {% if imagefile %}
-            <img src="{{ imagefile }}" alt="Uploaded Image" width="400px">
+            <h3> </h3>
+            <img src="{{ imagefile }}" alt="Uploaded Image" width="200px">
         {% endif %}
     </div>
 
@@ -26,7 +32,7 @@
     <!-- プレイリストID入力セクション -->
  <div class="container2">
     {% if getimage %}
-        <h1>上位10曲</h1>
+        <h1>あなたが今聴きたい曲は</h1>
         <table border="1">
         <tbody>
                 {% for row in top %}
@@ -41,7 +47,7 @@
         <!-- プレイリスト作成ボタン -->
         <form method="POST">
             <input type="hidden" name="create_playlist" value="true">
-            <button type="submit">プレイリストを作成する</button>
+            <button type="submit" class="playlist-button">上位50曲のプレイリストを作成する</button>
         </form>
 
         {% if URLready %}

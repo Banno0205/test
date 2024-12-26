@@ -28,12 +28,24 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 def cos_sim(v1, v2):
+    """
+    スケールの影響を除外したコサイン類似度を計算
+    Parameters:
+        v1, v2: np.ndarray - 入力ベクトル
+    Returns:
+        float - コサイン類似度
+    """
+    # Zスコア正規化
+    v1 = (v1 - np.mean(v1)) / np.std(v1) if np.std(v1) != 0 else v1
+    v2 = (v2 - np.mean(v2)) / np.std(v2) if np.std(v2) != 0 else v2
+    
+    # コサイン類似度計算
     return np.dot(v1, v2) / (np.linalg.norm(v1) * np.linalg.norm(v2))
 
 model = load_model('./model.h5')#学習済みモデルをロード
 
 my_id = '15e224ff16bf4d60908897bfb087dcd3'
-my_secret = '68d3c057a7af489ebdae3ce4b323530f'
+my_secret = '37a7614b9dc647e6b6f89e94f8487d7e'
 
 
 # ユーザー認証に変更
@@ -101,8 +113,6 @@ def upload_file():
             np_get_list_0 = np_standard_list * result[:, np.newaxis]
             np_get_list = np.sum(np_get_list_0, axis=0)
 
-            print("np_standard_list")
-            print(np_standard_list)
 
             #allplylist.csvに入っているデータとのコサイン類似度を計算
             df = pd.read_csv("/Users/bannotaito/Spotify/test/allplaylist.csv")
@@ -118,19 +128,11 @@ def upload_file():
                 np_all_list_2 = np_all_list[n]
                 result_2.loc[n,'類似度'] = np.mean(cos_sim(np_all_list_2, np_get_list))
 
-            print("result_2")
-            print(result_2)
-            print("np_all_list")
-            print(np_all_list)
-            
 
             #計算した類似度をdfに追加し上位50曲に絞る
             df['類似度'] = result_2['類似度'].values
             df_top50 = df.sort_values(by='類似度', ascending=False).head(51)
-            print(df_top50)
-            print("ここから")
-            print(np_get_list_0)
-            print(np_get_list)
+
 
             df_top_2 = df_top50.iloc[:, [1, 0]].values.tolist()  # リストに変換
             top = df_top_2[:11]
