@@ -4,4 +4,3 @@ werkzeug==2.2.3
 tensorflow==2.16.2
 numpy==1.26.4
 spotipy==2.24.0
-macOS==15.2
