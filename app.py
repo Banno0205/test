@@ -9,9 +9,7 @@ import numpy as np
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 import pandas as pd
-import pprint
 import tensorflow as tf
-import glob 
 from spotipy.oauth2 import SpotifyOAuth
 
 classes = ["奏","One more time, One more chance","恋音と雨空","I'm a mess","Good Time","たしかなこと","瞳をとじて",
